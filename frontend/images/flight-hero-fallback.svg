@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="120" y1="70" x2="1470" y2="740" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#123454"/>
+      <stop offset=".54" stop-color="#245675"/>
+      <stop offset="1" stop-color="#9a897e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(0 410 -570 0 1260 230)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b9d8e5" stop-opacity=".76"/>
+      <stop offset="1" stop-color="#a8d0e2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="plane" x1="1080" y1="260" x2="1510" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e4f2fb" stop-opacity=".96"/>
+      <stop offset="1" stop-color="#a9c7d7" stop-opacity=".72"/>
+    </linearGradient>
+    <linearGradient id="ridge" x1="0" y1="520" x2="1600" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#173d56"/>
+      <stop offset="1" stop-color="#263e4d"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1600v700H0z"/>
+  <path fill="url(#glow)" d="M0 0h1600v700H0z"/>
+  <circle cx="1260" cy="190" r="114" fill="#e1edf0" fill-opacity=".12"/>
+  <circle cx="1260" cy="190" r="170" stroke="#e1edf0" stroke-opacity=".12" stroke-width="2"/>
+  <circle cx="1260" cy="190" r="226" stroke="#e1edf0" stroke-opacity=".08" stroke-width="2"/>
+  <path fill="#dceaf0" fill-opacity=".17" d="M118 218c34-43 110-43 145 0 34-33 95-30 123 11h49c32 0 58 26 58 58H56c0-38 27-69 62-69Zm843 81c28-34 89-35 117-1 29-25 79-19 99 15h34c26 0 47 21 47 47H800c0-32 24-59 55-61h106Z"/>
+  <path fill="#afc7d2" fill-opacity=".16" d="M0 526c203-41 335-25 501 14 166 38 292 57 461 6s383-88 638-43v197H0V526Z"/>
+  <path fill="url(#ridge)" d="M0 592c235-76 410-42 605 1 173 38 326 63 505 0 145-51 314-71 490-48v155H0V592Z"/>
+  <path fill="#102f49" fill-opacity=".68" d="M0 641c204-45 371-18 548 15 217 40 395 35 590-14 177-45 307-46 462-27v85H0v-59Z"/>
+  <g transform="translate(1030 245) rotate(-7)" fill="url(#plane)">
+    <path d="m0 100 388-30 42 13-42 13-388 31-20-10 20-17Z"/>
+    <path d="m151 94-78-90 23-5 138 88-83 7Zm0 23-86 94 24 6 145-91-83-9Z"/>
+    <path d="m34 98-30-48 18-3 72 46-60 5Zm0 21-40 43 19 5 81-43-60-5Z"/>
+  </g>
+  <path stroke="#d7e8ef" stroke-opacity=".2" d="M0 478c284-39 476 40 712 37 291-4 455-113 888-82"/>
+</svg>

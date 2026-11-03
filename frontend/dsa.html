@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#071a33">
+    <meta name="description" content="Interactive, step-by-step demonstrations of the flight system's searching and sorting algorithms.">
+    <title>DSA Lab &amp; Project Guide — Skylane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="site-nav">
+    <a class="brand" href="index.html"><span class="brand-mark">✈</span> skylane<span class="brand-period">.</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primaryNavLinks" aria-label="Open navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="primaryNavLinks"><a href="index.html">Discover</a><a href="flights.html">Flights</a><a href="bookings.html">My bookings</a><a class="active" href="dsa.html">DSA Lab</a></div>
+    <a class="nav-admin" href="admin.html">Admin <span aria-hidden="true">↗</span></a>
+</nav>
+<main class="page-width content-page dsa-page">
+    <header class="page-intro dsa-intro">
+        <div><p class="eyebrow eyebrow-dark">SECOND-YEAR DSA MINI PROJECT</p><h1>Inside the algorithms.</h1><p class="page-subtitle">Step through the same flight records the system searches and sorts.</p></div>
+        <a class="text-link" href="flights.html">Explore live flights <span>→</span></a>
+    </header>
+    <div id="dsaAlert" class="alert" role="status"></div>
+    <div class="dsa-data-note"><span class="dsa-live-dot"></span><span id="dataStatus">Loading current flight records…</span><button id="refreshData" type="button" class="dsa-refresh">Refresh data ↻</button></div>
+
+    <section class="dsa-section">
+        <div class="dsa-section-heading"><div><p class="eyebrow eyebrow-dark">INTERACTIVE WALKTHROUGH</p><h2>Run an algorithm</h2><p>Each demonstration uses the current records returned by the C++ backend. The trace is an educational visualization of the matching algorithm.</p></div><span class="dsa-count" id="flightCount">— records</span></div>
+        <article class="card dsa-algorithm-card">
+            <div class="dsa-algorithm-top">
+                <label class="dsa-select-field"><span>ALGORITHM</span><select id="algorithmSelect">
+                    <option value="linear">Linear Search</option>
+                    <option value="binary">Binary Search</option>
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="merge">Merge Sort</option>
+                </select></label>
+                <div id="searchControls" class="dsa-search-controls">
+                    <label class="dsa-select-field"><span>SEARCH FIELD</span><select id="linearKey"><option value="source">Source city</option><option value="destination">Destination city</option><option value="airline">Airline</option><option value="date">Flight date</option></select></label>
+                    <label class="dsa-select-field"><span>VALUE TO FIND</span><input id="linearTarget" type="text" value="Delhi" maxlength="60"></label>
+                </div>
+                <div id="binaryControls" class="dsa-search-controls" hidden>
+                    <label class="dsa-select-field"><span>FLIGHT ID TO FIND</span><input id="binaryTarget" type="text" value="FL004" maxlength="20"></label>
+                </div>
+                <button id="runDemo" class="btn btn-primary" type="button">Run demonstration <span>→</span></button>
+            </div>
+            <div class="dsa-algorithm-description">
+                <div><span class="dsa-algorithm-icon" id="algorithmIcon">⌕</span><div><h3 id="algorithmTitle">Linear Search</h3><p id="algorithmDescription">Check each flight record in order and collect every match.</p></div></div>
+                <div class="dsa-complexity-pills"><span id="timeComplexity">Time: O(n)</span><span id="spaceComplexity">Space: O(k)</span></div>
+            </div>
+            <div id="demoOutput" class="dsa-demo-output">
+                <div class="dsa-demo-placeholder"><span>↗</span><strong>Your trace appears here.</strong><p>Choose an algorithm, set a search value if needed, then run the demonstration.</p></div>
+            </div>
+        </article>
+        <p class="dsa-footnote">For Binary Search, the application first insertion-sorts a copy of the flight list by ID. The trace shows this preparation and then the binary-search comparisons. The stated end-to-end complexity includes the preparation step.</p>
+    </section>
+
+    <section class="dsa-section project-guide" id="project-guide">
+        <div class="dsa-section-heading"><div><p class="eyebrow eyebrow-dark">PROJECT REPORT NOTES</p><h2>Project at a glance</h2><p>A concise report-ready overview of the problem, design, and learning outcomes.</p></div></div>
+        <div class="report-grid">
+            <article class="report-card report-card-wide"><span class="report-index">01 / ABSTRACT</span><h3>Abstract</h3><p>The Flight Management and Reservation System is a local web application for viewing flights, booking seats, managing reservations, and maintaining a flight schedule. It combines a responsive HTML, CSS, and JavaScript interface with a Python HTTP bridge and a C++17 backend. Flight and booking records are stored in text files. Linear search finds route and airline matches, binary search looks up a flight ID after preparing an ID-sorted copy, and bubble, selection, and merge sort demonstrate different ways to order flights. Booking and cancellation update persisted seat counts, making the algorithms visible in a practical application rather than isolated examples.</p></article>
+            <article class="report-card report-card-wide"><span class="report-index">02 / PROBLEM</span><h3>Problem statement</h3><p>Small flight reservation applications need to locate flights, compare schedules, maintain seat inventory, and store booking history reliably. This project addresses those tasks while illustrating how searching and sorting algorithms operate on flight records. It also needs to reject invalid requests and keep flight and booking files consistent when a reservation is created or cancelled.</p></article>
+            <article class="report-card"><span class="report-index">03 / OBJECTIVES</span><h3>Objectives</h3><ul><li>Represent flights and bookings as structured records.</li><li>Apply linear and binary search to flight lookup.</li><li>Compare bubble, selection, and merge sorting.</li><li>Connect algorithm results to booking and admin workflows.</li><li>Persist records and validate seat changes.</li></ul></article>
+            <article class="report-card"><span class="report-index">04 / METHODOLOGY</span><h3>Proposed methodology</h3><ol><li>Load pipe-delimited flight or booking records from files.</li><li>Validate the requested action and its input fields.</li><li>Run the appropriate C++ search or sort algorithm.</li><li>For mutations, update records and write through a temporary file.</li><li>Return JSON through the Python bridge to the browser UI.</li><li>Test normal, boundary, and invalid cases using isolated data.</li></ol></article>
+            <article class="report-card"><span class="report-index">05 / REQUIREMENTS</span><h3>Hardware &amp; software</h3><p><strong>Hardware:</strong> A basic laptop/desktop, dual-core processor, 4 GB RAM, and a few hundred MB of free storage are sufficient for this small local application.</p><p><strong>Software:</strong> Windows 10/11, Python 3.8+, a C++17 compiler such as MinGW-w64 g++, and a modern browser. No third-party Python packages or frontend build system are needed.</p></article>
+            <article class="report-card"><span class="report-index">06 / CONCEPTS</span><h3>DSA concepts used</h3><ul><li>Vectors (dynamic arrays) to hold flight and booking records.</li><li>Linear search for partial text and route matches.</li><li>Insertion sort as preparation for binary search by flight ID.</li><li>Binary search over sorted flight IDs.</li><li>Bubble sort for ascending ticket price.</li><li>Selection sort by date and departure time.</li><li>Recursive merge sort for ascending flight duration.</li></ul></article>
+            <article class="report-card"><span class="report-index">07 / TRADE-OFFS</span><h3>Advantages &amp; limitations</h3><p><strong>Advantages:</strong> Simple local setup, visible algorithm traces, persistent file storage, input validation, and practical seat-inventory updates.</p><p><strong>Limitations:</strong> Text files and a single-user local server are intended for a classroom demo, not concurrent production traffic. Binary ID lookup currently includes insertion-sort preparation. The admin screen has no authentication. Records are small, so there is no database index or distributed deployment.</p></article>
+            <article class="report-card"><span class="report-index">08 / NEXT STEPS</span><h3>Future scope</h3><ul><li>Use a database with indexes and transactional updates.</li><li>Add user/admin authentication and authorization.</li><li>Support multiple passengers per booking and richer ticket details.</li><li>Add route/date availability filters and fare comparison.</li><li>Use persistent sorted indexes for repeated flight-ID lookups.</li><li>Add automated UI tests, deployment, and accessibility review.</li></ul></article>
+            <article class="report-card report-card-wide report-conclusion"><span class="report-index">09 / CONCLUSION</span><h3>Conclusion</h3><p>The project demonstrates how core DSA techniques can support everyday flight-search tasks. Linear search handles flexible matching, binary search illustrates lookup on ordered IDs, and the three sorting methods arrange results by useful travel criteria. A file-backed C++ service connects these concepts to real booking, cancellation, and schedule-management flows. The interactive DSA Lab makes the data, intermediate steps, output, and complexity available for a classroom explanation. The system is a learning prototype and a foundation for future improvements, rather than a production airline service.</p></article>
+        </div>
+        <div class="complexity-report card">
+            <div class="complexity-report-heading"><div><p class="eyebrow eyebrow-dark">ALGORITHM SUMMARY</p><h3>Time &amp; space complexity</h3></div><span>n = flights, k = matches</span></div>
+            <div class="table-wrap"><table class="complexity-table"><thead><tr><th>Algorithm</th><th>Use in project</th><th>Time complexity</th><th>Additional space</th></tr></thead><tbody>
+                <tr><td>Linear Search</td><td>Source, destination, airline, date</td><td>Best O(1); worst O(n)</td><td>O(k) results</td></tr>
+                <tr><td>Binary Search</td><td>Flight ID lookup (after insertion-sort prep)</td><td>Search O(log n); total worst O(n²)</td><td>O(n) copy; O(1) search</td></tr>
+                <tr><td>Bubble Sort</td><td>Ticket price</td><td>Best O(n); average/worst O(n²)</td><td>O(1)</td></tr>
+                <tr><td>Selection Sort</td><td>Departure date and time</td><td>Best/average/worst O(n²)</td><td>O(1)</td></tr>
+                <tr><td>Merge Sort</td><td>Flight duration</td><td>Best/average/worst O(n log n)</td><td>O(n) auxiliary + O(log n) stack</td></tr>
+            </tbody></table></div>
+            <p class="complexity-caveat">The binary-search phase is O(log n), but this implementation insertion-sorts a copy for each lookup. Its complete lookup therefore takes O(n²) in the average and worst case; if input is already sorted, insertion-sort preparation is O(n).</p>
+        </div>
+    </section>
+
+</main>
+<footer class="site-footer"><a class="brand" href="index.html"><span class="brand-mark">✈</span> skylane<span class="brand-period">.</span></a><span>Flight algorithms, made visible.</span><a href="#project-guide">Project guide ↑</a></footer>
+<script src="js/api.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/dsa.js"></script>
+</body>
+</html>

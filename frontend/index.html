@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#071a33">
+    <title>Skylane — Find your next flight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="site-nav">
+    <a class="brand" href="index.html"><span class="brand-mark">✈</span> skylane<span class="brand-period">.</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primaryNavLinks" aria-label="Open navigation"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="primaryNavLinks">
+        <a class="active" href="index.html">Discover</a>
+        <a href="flights.html">Flights</a>
+        <a href="bookings.html">My bookings</a>
+        <a href="dsa.html">DSA Lab</a>
+    </div>
+    <a class="nav-admin" href="admin.html">Admin <span aria-hidden="true">↗</span></a>
+</nav>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <p class="eyebrow"><span class="eyebrow-line"></span> YOUR JOURNEY STARTS HERE</p>
+            <h1>The world is closer<br>than <em>you think.</em></h1>
+            <p class="hero-copy">Find your flight, find your freedom. Thoughtful fares and effortless journeys, all in one place.</p>
+        </div>
+        <div class="hero-note"><span class="hero-note-icon">✦</span><span>Make room for<br>what moves you.</span></div>
+    </section>
+
+    <section class="search-panel page-width" aria-label="Search flights">
+        <div class="search-panel-heading">
+            <div><p class="eyebrow eyebrow-dark">LET'S GET YOU THERE</p><h2>Search flights</h2></div>
+            <span class="trip-pill"><span>●</span> One way</span>
+        </div>
+        <form class="flight-search-form" id="homeSearch">
+            <label class="search-field">
+                <span class="field-label">FROM</span>
+                <span class="field-input"><span class="field-icon">⌖</span><input id="homeSource" type="text" placeholder="Departure city" autocomplete="off" list="homeCities"></span>
+            </label>
+            <button type="button" class="swap-button" id="swapCities" aria-label="Swap departure and destination">↔</button>
+            <label class="search-field">
+                <span class="field-label">TO</span>
+                <span class="field-input"><span class="field-icon">⌖</span><input id="homeDestination" type="text" placeholder="Where to?" autocomplete="off" list="homeCities"></span>
+            </label>
+            <label class="search-field date-field">
+                <span class="field-label">DEPARTURE</span>
+                <span class="field-input"><span class="field-icon">▦</span><input id="homeDate" type="date"></span>
+            </label>
+            <button class="btn btn-primary search-submit" type="submit">Find flights <span aria-hidden="true">→</span></button>
+        </form>
+        <datalist id="homeCities"></datalist>
+    </section>
+
+    <section class="section page-width destinations-section">
+        <div class="section-heading">
+            <div><p class="eyebrow eyebrow-dark">A LITTLE INSPIRATION</p><h2>Somewhere wonderful</h2></div>
+            <a class="text-link" href="flights.html">Explore all flights <span>→</span></a>
+        </div>
+        <div class="destination-grid" id="popularDestinations" aria-live="polite">
+            <div class="destination-skeleton" aria-hidden="true"></div>
+            <div class="destination-skeleton" aria-hidden="true"></div>
+            <div class="destination-skeleton" aria-hidden="true"></div>
+        </div>
+        <p id="destinationStatus" class="destination-status" role="status">Finding destinations in the current flight schedule…</p>
+    </section>
+
+    <section class="airline-strip page-width">
+        <div><p class="eyebrow eyebrow-dark">THE JOURNEY, YOUR WAY</p><h2>Airlines you know.<br>Service you’ll love.</h2></div>
+        <div class="airline-logos" aria-label="Featured airlines"><span>IndiGo</span><span>air india</span><span>SpiceJet</span><span>Vistara</span></div>
+    </section>
+
+    <section class="why-section">
+        <div class="page-width why-inner">
+            <div><p class="eyebrow">TRAVEL, MADE THOUGHTFUL</p><h2>More journey.<br>Less juggling.</h2></div>
+            <div class="why-points">
+                <article><span class="why-number">01</span><div><h3>Find your fit</h3><p>Compare fares, departure times and flight durations in one clear view.</p></div></article>
+                <article><span class="why-number">02</span><div><h3>Book with ease</h3><p>Your passenger details and booking confirmation, without the fuss.</p></div></article>
+                <article><span class="why-number">03</span><div><h3>Stay in control</h3><p>Keep track of your trips and manage bookings whenever plans change.</p></div></article>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="site-footer"><a class="brand" href="index.html"><span class="brand-mark">✈</span> skylane<span class="brand-period">.</span></a><span>Made for the places that stay with you.</span><a href="bookings.html">Your bookings →</a></footer>
+<script src="js/api.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>
